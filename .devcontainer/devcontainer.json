@@ -1,0 +1,26 @@
+{
+  "name": "recipe-app-api-dev",
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": "..",
+    "args": {
+      "DEV": "true"
+    }
+  },
+  "remoteUser": "django-user",
+  "workspaceFolder": "/app",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-azuretools.vscode-docker"
+      ],
+      "settings": {
+        "python.pythonPath": "/py/bin/python"
+      }
+    }
+  },
+  "forwardPorts": [8000],
+  "postCreateCommand": "pip install -r /tmp/requirements.dev.txt"
+}
